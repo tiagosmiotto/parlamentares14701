@@ -75,3 +75,10 @@ window.addEventListener("message", function(event) {
     }
   }
 });
+// scripts.js
+window.onload = function() {
+    var bodyHeight = document.body.scrollHeight;
+    window.parent.postMessage({ bodyHeight: bodyHeight }, "*");
+};
+
+// Outros códigos que você já tenha no scripts.js
