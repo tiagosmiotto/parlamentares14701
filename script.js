@@ -63,6 +63,13 @@ function updateIframe() {
 }
 
 // Ajusta a altura do iframe automaticamente
+
+function sendHeight() {
+  const height = document.body.scrollHeight;
+  console.log("Enviando altura:", height); 
+  window.parent.postMessage({ "iframe-body-height": height }, "*");
+}
+
 window.addEventListener("message", function(event) {
   if (typeof event.data["datawrapper-height"] !== "undefined") {
     var iframes = document.querySelectorAll("iframe");
@@ -74,14 +81,12 @@ window.addEventListener("message", function(event) {
       }
     }
   }
+
+    sendHeight();  // Chamada aqui garante que a altura seja enviada
+  
 });
 
 // UPDATE 
-function sendHeight() {
-  const height = document.body.scrollHeight;
-  console.log("Enviando altura:", height); 
-  window.parent.postMessage({ "iframe-body-height": height }, "*");
-}
 
 window.addEventListener("load", sendHeight);
 
