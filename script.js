@@ -75,29 +75,3 @@ window.addEventListener("message", function(event) {
     }
   }
 });
-// scripts.js
-window.onload = function() {
-    var bodyHeight = document.body.scrollHeight;
-    window.parent.postMessage({ bodyHeight: bodyHeight }, "*");
-};
-
-// Ajusta a altura do iframe automaticamente com base na altura do body
-window.onload = function() {
-    var bodyHeight = document.body.scrollHeight; // Captura a altura total do body
-    window.parent.postMessage({ bodyHeight: bodyHeight }, "*"); // Envia a altura ao parent
-};
-
-// Se a página redimensionar, envie a nova altura
-window.onresize = function() {
-    var bodyHeight = document.body.scrollHeight; // Captura a nova altura do body
-    window.parent.postMessage({ bodyHeight: bodyHeight }, "*"); // Envia a nova altura ao parent
-};
-
-// Adiciona o listener para ajustar a altura com base nas mensagens recebidas
-window.addEventListener("message", function(event) {
-    if (typeof event.data.bodyHeight !== "undefined") {
-        var iframe = document.getElementById('iframeDisplay'); // ID do iframe que você está ajustando
-        iframe.style.height = event.data.bodyHeight + "px"; // Ajusta a altura do iframe
-    }
-});
-
