@@ -86,8 +86,8 @@ function sendHeight() {
 window.addEventListener("load", sendHeight);
 
 window.addEventListener("resize", function() {
-  const height = document.body.scrollHeight; 
-  console.log("Redimensionando..."); 
-  console.log("Nova altura ao redimensionar:", height);
-  window.parent.postMessage({ "iframe-body-height": height }, "*");
+  console.log("Evento resize acionado"); // Log para confirmar que o evento resize foi chamado
+  const height = document.body.scrollHeight; // Calcule a nova altura
+  console.log("Nova altura ao redimensionar:", height); // Log da nova altura
+  window.parent.postMessage({ "iframe-body-height": height }, "*"); // Envie a nova altura
 });
