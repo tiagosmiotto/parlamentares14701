@@ -78,12 +78,10 @@ window.addEventListener("message", function(event) {
 
 // UPDATE 
 function sendHeight() {
-  console.log("Enviando altura...");
   const height = document.body.scrollHeight;
-  window.parent.postMessage({ "datawrapper-height": height }, "*");
+  console.log("Enviando altura:", height); 
+  window.parent.postMessage({ "iframe-body-height": height }, "*");
 }
 
 window.addEventListener("load", sendHeight);
-  console.log("Página carregada, chamando sendHeight...");
 window.addEventListener("resize", sendHeight);
-
