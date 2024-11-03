@@ -85,14 +85,3 @@ window.addEventListener("message", function(event) {
     }
   }
 });
-
-// UPDATE 
-
-window.addEventListener("load", sendHeight);
-
-window.addEventListener("resize", function() {
-  console.log("Evento resize acionado"); // Log para confirmar que o evento resize foi chamado
-  const height = document.body.scrollHeight; // Calcule a nova altura
-  console.log("Nova altura ao redimensionar:", height); // Log da nova altura
-  window.parent.postMessage({ "iframe-body-height": height }, "*"); // Envie a nova altura
-});
