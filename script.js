@@ -77,13 +77,13 @@ window.addEventListener("message", function(event) {
       for (var i = 0; i < iframes.length; i++) {
         if (iframes[i].contentWindow === event.source) {
           iframes[i].style.height = event.data["datawrapper-height"][key] + "px";
+          
+          // Chama sendHeight aqui para garantir que a altura seja enviada
+          sendHeight(); 
         }
       }
     }
   }
-
-    sendHeight();  // Chamada aqui garante que a altura seja enviada
-  
 });
 
 // UPDATE 
