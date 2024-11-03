@@ -75,3 +75,13 @@ window.addEventListener("message", function(event) {
     }
   }
 });
+
+// UPDATE 
+function sendHeight() {
+  const height = document.body.scrollHeight;
+  window.parent.postMessage({ "datawrapper-height": height }, "*");
+}
+
+window.addEventListener("load", sendHeight);
+window.addEventListener("resize", sendHeight);
+
